@@ -1,38 +1,62 @@
-//Make a class “Animal” with the abstract method speak()
-//Make classes “dog” and “cat” that inherit from animal.
-//Override the speak method
-//Make the objects and call speak from main
-
 #include <iostream>
 using namespace std;
 
-class Animal 
+class Animal
 {
 public:
+    Animal()
+    {
+        cout << "Animal created!" << endl;
+    }
+
+    virtual ~Animal()
+    {
+        cout << "Animal destroyed!" << endl;
+    }
     virtual void speak()
     {
-        cout << "Animal sound: " << endl;
+        cout << "Animal sound!" << endl;
     }
 };
 
-class Dog : public Animal 
+class Dog : public Animal
 {
 public:
-    void speak() override 
+    Dog()
+    {
+        cout << "Dog created!" << endl;
+    }
+
+    ~Dog() override
+    {
+        cout << "Dog destroyed!" << endl;
+    }
+
+    void speak() override
     {
         cout << "Woof! Woof!" << endl;
     }
 };
 
-class Cat : public Animal 
+class Cat : public Animal
 {
-    void speak() override 
+public:
+    Cat()
+    {
+        cout << "Cat created!" << endl;
+    }
+    
+    ~Cat() override
+    {
+        cout << "Cat destroyed!" << endl;
+    }
+    void speak() override
     {
         cout << "Meow! Meow!" << endl;
     }
 };
 
-int main() 
+int main()
 {
     Animal* dog = new Dog();
     Animal* cat = new Cat();
